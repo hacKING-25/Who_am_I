@@ -4,253 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kunal's Portfolio</title>
-    <style>
-        /* --- 1. CSS Variables & Reset --- */
-        :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --bg-light: #f8fafc;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-light);
-        }
-
-        /* --- 2. Header & Navigation --- */
-        header {
-            background-color: var(--card-bg);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- 3. Layout & Sections --- */
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 5%;
-        }
-
-        section {
-            background: var(--card-bg);
-            margin-bottom: 2rem;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-            border: 1px solid var(--border-color);
-        }
-
-        section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
-            color: var(--text-main);
-            border-bottom: 3px solid var(--primary-color);
-            display: inline-block;
-            padding-bottom: 0.3rem;
-        }
-
-        /* --- 4. Hero / Home Section --- */
-        #Home {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h2 {
-            border: none;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary-color);
-            flex-shrink: 0;
-        }
-
-        /* --- 5. Projects Grid --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .project-card {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .project-card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        /* --- 6. Technology Stack (Statistics Style) --- */
-        .stats-summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .stat-box {
-            background: var(--bg-light);
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-item {
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .progress-bar-bg {
-            width: 100%;
-            height: 10px;
-            background-color: var(--border-color);
-            border-radius: 999px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background-color: var(--primary-color);
-            border-radius: 999px;
-        }
-
-        /* --- 7. Contact & Footer --- */
-        #Contact a {
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        #Contact a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--card-bg);
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* --- 8. Responsive Media Queries (Mobile Devices) --- */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            nav ul {
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            #Home {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-
-            section {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="page.css">
 </head>
 <body>
 
@@ -286,9 +40,9 @@
         <!-- Projects Section -->
         <section id="Projects">
             <h2>Projects</h2>
-            <ul class="projects-grid">
-                <li class="project-card">
-                    <a href="http:localhost:5500/portfolio.html" target="_blank">
+            <ul class="projects-grid" style="list-style-type: none; padding: 0;">
+                <li class="project-card" >
+                    <a href="http:localhost:5500/portfolio.html" target="_blank" style="text-decoration: none; color: inherit;" >
                     <h3>Personal Portfolio Website</h3>
                     <p>A responsive personal portfolio built with semantic HTML5 and modern CSS layouts.</p>
                 </li>
@@ -299,6 +53,13 @@
                     <p>A full-stack CRUD app with the feature all the basic crud operation and deployed successfully.</p>
                 </li>
             </a>
+            <li class="project-card">
+                <a href="https://movie-app-self-five-54.vercel.app/" target="_blank">
+                    <h3>Movie App</h3>
+                    <p>A movie app that fetches data from an API and displays it in a user-friendly interface.</p>
+
+            </li>
+        </a>
             </ul>
         </section>
 
