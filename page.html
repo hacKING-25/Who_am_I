@@ -10,15 +10,20 @@
 
     <header>
         <h1>Kunal Dabade</h1>
-        <nav>
-            <ul>  
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#About">About</a></li>
-                <li><a href="#Projects">Projects</a></li>
-                <li><a href="#tech-stack">Technology Stack</a></li>
-                <li><a href="#Contact">Contact</a></li> 
-            </ul>
-        </nav>
+            <nav>
+                <ul>  
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Projects">Projects</a></li>
+                    <li><a href="#tech-stack">Technology Stack</a></li>
+                    <li><a href="#Contact">Contact</a></li> 
+                </ul>
+                <div class="theme-switcher">
+                    <button class="theme-btn active" onclick="setTheme('day')">Day</button>
+                    <button class="theme-btn" onclick="setTheme('night')">Night</button>
+                    <button class="theme-btn" onclick="setTheme('blue')">Blue</button>
+                </div>
+            </nav>
     </header>
 
     <main>
@@ -147,6 +152,30 @@
     <footer>
         <p>&copy; 2024 Kunal Dabade. All rights reserved.</p>
     </footer>
+
+    <script>
+        function setTheme(theme) {
+            if (theme === 'day') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+            localStorage.setItem('portfolio-theme', theme);
+            
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === theme) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        }
+    </script>
 
 </body>
 </html>
